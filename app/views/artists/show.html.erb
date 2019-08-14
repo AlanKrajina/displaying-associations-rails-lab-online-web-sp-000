@@ -1,1 +1,11 @@
 <h1><%= @artist.name %></h1>
+
+<% @artist.songs.each do |song| %>
+<ul>
+
+    <li><%= song.title %></li>
+      <%= link_to 'View', song %> |
+      <%= link_to 'Edit', edit_song_path(song) %> |
+      <%= link_to 'Delete', song, method: :delete, data: { confirm: 'For real?' } %>
+</ul>
+<% end %>
